@@ -3,98 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lee Tan | Portfolio</title>
+    <title>Lee Tan | Data Analyst & UI/UX Specialist</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Professional font combo -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <!-- New Navigation Header -->
+    <header class="professional-header">
         <div class="container">
             <div class="header-content">
-                        <img src="assets/Leeheadshot.JPG" alt="Lee Tan" class="headshot">
-                        <div>
-            <h1>Lee Tan</h1>
-            <p class="subtitle">Data Analyst | UI/UX Design</p>
-            <p class="bio">Rutgers ITI graduate blending data insights with user-centric design</p>
+                <img src="assets/headshot.jpg" alt="Lee Tan" class="professional-headshot">
+                <div>
+                    <h1>Lee Tan</h1>
+                    <p class="professional-subtitle">Data Analyst | UI/UX Design</p>
+                    
+                    <!-- New Dropdown Navigation -->
+                    <nav class="dropdown-nav">
+                        <button class="dropdown-btn">View Credentials ▼</button>
+                        <div class="dropdown-content">
+                            <a href="experience.html">Professional Experience</a>
+                            <a href="assets/resume.pdf" target="_blank">Download Resume (PDF)</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
         </div>
     </header>
-    
-    <section id="skills" class="container">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Data Analysis</h3>
-                <ul>
-                    <li>Power BI</li>
-                    <li>Tableau</li>
-                    <li>SQL</li>
-                    <li>Microsoft Excel</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Development</h3>
-                <ul>
-                    <li>Java</li>
-                    <li>HTML/CSS</li>
-                    <li>Spring Boot</li>
-                    <li>AWS</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>UI/UX</h3>
-                <ul>
-                    <li>Figma</li>
-                    <li>User Research</li>
-                    <li>Prototyping</li>
-                    <li>Wireframing</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    
-    
+
+    <!-- Projects Section -->
     <section id="projects" class="container">
-        <h2>Projects</h2>
-        <!-- In your projects-grid div -->
+        <h2>Featured Projects</h2>
         <div class="projects-grid">
             <!-- Waytr Project -->
-            <a href="assets/Waytr final.pdf" class="project-card">
+            <a href="assets/Waytr final.pdf" class="project-card professional-card">
                 <h3>Waytr</h3>
-                <div class="project-desc">
-                    <p class="project-impact">✅ <strong>Impact:</strong> Reduced perceived wait times by 40% in user testing</p>
-                    <p class="project-tech">🛠️ <strong>Tech:</strong> Figma, Java Spring Boot, GPS APIs</p>
-                    <p class="project-role">👥 <strong>Role:</strong> Lead Prototyper & Market Researcher</p>
-                </div>
+                <p>Restaurant wait time management system prototype reducing perceived wait times by 40%</p>
+                <div class="project-tech">Java | Figma | UX Research</div>
             </a>
-
+            
             <!-- SweepSea Project -->
-            <a href="assets/SweepSea.pdf" class="project-card">
+            <a href="assets/SweepSea.pdf" class="project-card professional-card">
                 <h3>SweepSea</h3>
-                <div class="project-desc">
-                    <p class="project-impact">✅ <strong>Impact:</strong> Connected 100+ NJ students to cleanup events</p>
-                    <p class="project-tech">🛠️ <strong>Tech:</strong> Figma, Python, MySQL</p>
-                    <p class="project-role">👥 <strong>Role:</strong> Prototype Developer & Project Manager</p>
-                </div>
+                <p>Environmental cleanup app connecting 100+ NJ students to community service opportunities</p>
+                <div class="project-tech">Python | MySQL | GPS Integration</div>
             </a>
         </div>
-
-    <section id="cta" class="container">
-        <a href="experience.html" class="btn">View Experience</a>
-        <a href="assets/resume.pdf" class="btn" download>Download Resume</a>
     </section>
-    
-    <div class="achievements">
-        <div>🏆 Rutgers University Graduate</div>
-        <div>🚀 Blueprint Product Management Fellow</div>
-        <div>⚽ Intramural Soccer Champion</div>
-    </div>
 
-
-    <footer>
+    <footer class="professional-footer">
         <div class="container">
-            <p>© 2025 Lee Tan | leematthewsalt@gmail.com</p>
+            <p>© 2024 Lee Tan | leematthewsalt@gmail.com | (732) 307-4030</p>
         </div>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
