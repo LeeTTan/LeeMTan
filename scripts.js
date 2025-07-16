@@ -1,35 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Dropdown functionality
     const dropdownBtn = document.querySelector('.dropdown-btn');
     const dropdownContent = document.querySelector('.dropdown-content');
     
-    // Toggle dropdown on button click
+    // Toggle dropdown
     dropdownBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        dropdownContent.style.display = 
-            dropdownContent.style.display === 'block' ? 'none' : 'block';
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
+        dropdownContent.classList.toggle('show');
     });
     
-    // Close when clicking elsewhere
+    // Close when clicking outside
     document.addEventListener('click', function() {
-        dropdownContent.style.display = 'none';
+        dropdownBtn.setAttribute('aria-expanded', 'false');
+        dropdownContent.classList.remove('show');
     });
     
-    // Prevent dropdown from closing when clicking inside it
+    // Prevent closing when clicking inside dropdown
     dropdownContent.addEventListener('click', function(e) {
         e.stopPropagation();
     });
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            dropdownBtn.setAttribute('aria-expanded', 'false');
+            dropdownContent.classList.remove('show');
+        }
     });
 });
