@@ -1,0 +1,431 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    line-height: 1.6;
+    background-color: #e3f2fd;
+    color: #263238;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Add these to your existing styles.css */
+.header-content {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.headshot {
+    object-position: top; /* Focuses on top portion of image */
+    object-fit: cover;    /* Ensures no distortion */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin-right: 30px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.bio {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    max-width: 500px;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #1e88e5, #42a5f5);
+    color: white;
+    text-align: center;
+    padding: 60px 0;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    background: rgba(0,0,0,0.15);
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.skill-category {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+/* Experience Page Specific */
+.exp-header {
+    background: linear-gradient(135deg, #1e88e5, #0d47a1);
+    padding: 60px 0 40px;
+    color: white;
+    text-align: center;
+}
+
+.experience-timeline {
+    max-width: 800px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50px;
+    width: 4px;
+    background: #e0e0e0;
+    z-index: 1;
+}
+
+.timeline-card {
+    position: relative;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease;
+    z-index: 2;
+}
+
+.timeline-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-badge {
+    position: absolute;
+    left: 30px;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: 4px solid #1e88e5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 3;
+}
+
+.timeline-content {
+    background: white;
+    margin-left: 90px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.timeline-date {
+    color: #757575;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.timeline-highlights {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.highlight {
+    flex: 1;
+    min-width: 200px;
+    background: #f5faff;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.highlight-icon {
+    font-size: 1.5rem;
+}
+
+.btn-expand {
+    background: none;
+    border: none;
+    color: #1e88e5;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.expanded-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.expanded-details.active {
+    max-height: 500px;
+    margin-top: 20px;
+}
+
+.tech-used {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.tech-used span {
+    background: #e3f2fd;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+}
+
+
+/* Projects Section */
+#projects {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 320px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid #42a5f5;
+}
+
+.project-card h3 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 1.8rem;
+    color: #1e88e5;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    font-size: 1.1rem;
+    color: #455a64;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: #00bcd4;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+/* Project Impact Styles */
+.project-impact,
+.project-tech,
+.project-role {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    text-align: left;
+    padding-left: 10px;
+    border-left: 3px solid #42a5f5;
+}
+
+.project-impact {
+    color: #2e7d32; /* Green for impact */
+}
+
+.project-tech {
+    color: #1565c0; /* Blue for tech */
+}
+
+.project-role {
+    color: #6a1b9a; /* Purple for role */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .project-desc p {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Buttons Section */
+#cta {
+    text-align: center;
+    margin: 40px 0;
+}
+.back-btn {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin: 25px 0;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid white;
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* For dark header backgrounds */
+.exp-header .back-btn {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Optional glowing effect */
+.back-btn:focus {
+    animation: pulse-glow 1.5s infinite;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+}
+.btn {
+    display: inline-block;
+    background: #00bcd4;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin: 0 15px;
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background: #00acc1;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+/* Achievements Banner */
+.achievements {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin: 40px 0;
+    background: rgba(30, 136, 229, 0.1);
+    border-top: 2px solid #1e88e5;
+    border-bottom: 2px solid #1e88e5;
+}
+
+.achievements div {
+    padding: 10px 20px;
+    background: white;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .achievements {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+}
+/* Footer */
+footer {
+    background: #263238;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 40px 0;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .projects-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .project-card {
+        width: 90%;
+        max-width: 350px;
+    }
+    
+    .btn {
+        display: block;
+        width: 80%;
+        margin: 15px auto;
+    }
+}
