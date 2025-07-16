@@ -34,24 +34,19 @@ body {
     margin: 0 auto;
 }
 
+/* In styles.css */
 .headshot-container {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
     overflow: hidden;
-    margin-right: 30px;
-    position: relative;
+    border-radius: 50%;
 }
 
 .professional-headshot {
-    position: absolute;
     width: 100%;
     height: auto;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    object-position: top; /* Focuses on head */
 }
-
 
 h1 {
     font-family: 'Montserrat', sans-serif;
