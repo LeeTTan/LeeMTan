@@ -34,15 +34,24 @@ body {
     margin: 0 auto;
 }
 
-.professional-headshot {
+.headshot-container {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
+    overflow: hidden;
     margin-right: 30px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    position: relative;
 }
+
+.professional-headshot {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 h1 {
     font-family: 'Montserrat', sans-serif;
