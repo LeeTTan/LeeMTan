@@ -1,15 +1,31 @@
-/* ===== Professional Reset ===== */
+/* ===== RESET & BASE STYLES ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #2980b9;
+    --light: #f8f9fa;
+    --dark: #333;
+    --text-light: #fff;
+    --text-dark: #2c3e50;
+    --border-radius: 6px;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--dark);
     background-color: #f9f9f9;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .container {
@@ -19,12 +35,14 @@ body {
     padding: 20px;
 }
 
-/* ===== Professional Header ===== */
+/* ===== PROFESSIONAL HEADER ===== */
 .professional-header {
-    background: linear-gradient(135deg, #2c3e50, #3498db);
-    color: white;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--text-light);
     padding: 40px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
 }
 
 .header-content {
@@ -34,51 +52,49 @@ body {
     margin: 0 auto;
 }
 
-/* In styles.css */
 .headshot-container {
     width: 120px;
     height: 120px;
-    overflow: hidden;
     border-radius: 50%;
+    overflow: hidden;
+    margin-right: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
 }
 
 .professional-headshot {
     width: 100%;
-    height: auto;
-    object-position: top; /* Focuses on head */
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
 }
 
-h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 5px;
+.header-text {
+    flex-grow: 1;
 }
 
 .professional-subtitle {
     font-size: 1.2rem;
     opacity: 0.9;
-    margin-bottom: 20px;
+    margin: 8px 0 20px;
 }
 
-
-/* Dropdown Container */
+/* ===== DROPDOWN NAVIGATION ===== */
 .dropdown-nav {
     position: relative;
     display: inline-block;
     z-index: 100;
 }
 
-/* Dropdown Button */
 .dropdown-btn {
     display: flex;
     align-items: center;
     gap: 8px;
     background: rgba(255, 255, 255, 0.15);
-    color: white;
+    color: var(--text-light);
     padding: 10px 20px;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
@@ -90,58 +106,50 @@ h1 {
 }
 
 .dropdown-icon {
+    width: 12px;
+    height: 12px;
     transition: transform 0.3s ease;
 }
 
-/* Dropdown Content */
 .dropdown-content {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 5px);
     left: 0;
-    display: none;
     min-width: 200px;
     background: white;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     opacity: 0;
+    visibility: hidden;
     transform: translateY(-10px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    z-index: 1000;
 }
 
-.dropdown-content.show {
-    display: block;
+.dropdown-nav.active .dropdown-content {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
+}
+
+.dropdown-nav.active .dropdown-icon {
+    transform: rotate(180deg);
 }
 
 .dropdown-content a {
     display: block;
     padding: 12px 16px;
-    color: #333;
+    color: var(--dark);
     text-decoration: none;
     transition: background 0.2s;
 }
 
 .dropdown-content a:hover {
-    background: #f5f5f5;
+    background: var(--light);
 }
 
-/* Rotate icon when open */
-.dropdown-btn[aria-expanded="true"] .dropdown-icon {
-    transform: rotate(180deg);
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-    .dropdown-content {
-        position: static;
-        width: 100%;
-        margin-top: 8px;
-    }
-}
-
-/* ===== Projects Section ===== */
+/* ===== PROJECTS SECTION ===== */
 #projects {
     padding: 60px 0;
 }
@@ -153,52 +161,53 @@ h1 {
     margin-top: 40px;
 }
 
-.professional-card {
+.project-card {
     background: white;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     padding: 25px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
     text-decoration: none;
     color: inherit;
     border: 1px solid #e0e0e0;
 }
 
-.professional-card:hover {
+.project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.professional-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    color: #2c3e50;
+.project-card h3 {
+    color: var(--primary);
     margin-bottom: 10px;
     font-size: 1.5rem;
 }
 
-.professional-card p {
+.project-card p {
     margin-bottom: 15px;
     color: #555;
+    line-height: 1.5;
 }
 
 .project-tech {
     font-size: 0.9rem;
-    color: #3498db;
+    color: var(--secondary);
     font-weight: 600;
+    margin-top: 15px;
 }
 
-/* ===== Experience Page Specific ===== */
+/* ===== EXPERIENCE PAGE ===== */
 .experience-timeline {
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
 .experience-card {
     background: white;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     padding: 30px;
     margin-bottom: 30px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-    border-left: 4px solid #3498db;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--secondary);
 }
 
 .experience-header {
@@ -206,6 +215,8 @@ h1 {
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .experience-date {
@@ -223,9 +234,9 @@ h1 {
 .highlight {
     flex: 1;
     min-width: 250px;
-    background: #f8f9fa;
+    background: var(--light);
     padding: 15px;
-    border-radius: 6px;
+    border-radius: var(--border-radius);
     display: flex;
     gap: 10px;
     align-items: center;
@@ -233,6 +244,7 @@ h1 {
 
 .highlight-icon {
     font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
 .experience-details {
@@ -240,9 +252,8 @@ h1 {
 }
 
 .experience-details h4 {
-    color: #2c3e50;
+    color: var(--primary);
     margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
 }
 
 .experience-details ul {
@@ -260,7 +271,7 @@ h1 {
     content: "▹";
     position: absolute;
     left: 0;
-    color: #3498db;
+    color: var(--secondary);
 }
 
 .tech-used {
@@ -271,35 +282,60 @@ h1 {
 
 .tech-used span {
     background: #e8f4fc;
-    color: #2980b9;
+    color: var(--accent);
     padding: 5px 12px;
     border-radius: 4px;
     font-size: 0.85rem;
     font-weight: 600;
 }
 
-/* ===== Footer ===== */
+/* ===== FOOTER ===== */
 .professional-footer {
-    background: #2c3e50;
-    color: white;
+    background: var(--primary);
+    color: var(--text-light);
     text-align: center;
-    padding: 20px 0;
+    padding: 25px 0;
     margin-top: 60px;
 }
 
-/* ===== Responsive Design ===== */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
         text-align: center;
     }
-    
-    .professional-headshot {
+
+    .headshot-container {
         margin: 0 auto 20px;
     }
-    
+
     .dropdown-nav {
         display: block;
         text-align: center;
     }
+
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        margin-top: 8px;
+        box-shadow: none;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
 }
